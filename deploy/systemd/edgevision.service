@@ -1,0 +1,12 @@
+[Unit]
+Description=Edge Vision Device
+After=network.target
+
+[Service]
+WorkingDirectory=/opt/edgevision
+ExecStart=/usr/bin/python3 -m edgevision.run
+Restart=always
+Environment=EDGEVISION_CONFIG=/opt/edgevision/configs/device.yaml
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,8 @@
+# Jetson Dockerfile (requires NVIDIA runtime)
+FROM nvcr.io/nvidia/l4t-ml:r35.3.1-py3
+WORKDIR /app
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . ./
+ENV EDGEVISION_CONFIG=configs/device.yaml
+CMD ["python", "-m", "edgevision.run"]

@@ -1,0 +1,28 @@
+camera:
+  index: 0            # /dev/video0 or numeric index; set to 0 for webcam
+  width: 640
+  height: 480
+  fps: 10
+
+inference:
+  backend: auto       # auto|yolo|classical
+  model_path: models/yolov8n.pt
+  conf_thres: 0.25
+  iou_thres: 0.45
+
+mqtt:
+  enabled: true
+  host: localhost
+  port: 1883
+  topic: edgevision/events
+  status_topic: edgevision/status
+
+modbus:
+  enabled: false
+  host: 127.0.0.1
+  port: 502
+  coil_address: 1
+
+api:
+  host: 0.0.0.0
+  port: 8000
